@@ -8,6 +8,7 @@ string word(char type) {
     string word;
 
     string g1[] = {"DEAR", "DARLING", "DEAREST", "BELOVED", "SWEET"};
+    
     string g2[] = {"FELLOW FEELING", "FANCY", "JEWEL", "DOLL", "LOVE", "AMOUR", "BELOVED", "HONEY"};
 
     string noun[] = {"SWEETHEART", "LOVE", "HEART", "PARAMOUR", "BEAU", "AMOUR", "FELLOW FEELING", "SYMPATHY", "WISH", "FLAME", "BELOVED", "TRUELOVE", "WONDER", "GEM", "DREAM", "PEACH", "SUGAR", "DAISY", "TREASURE", "DOOZY", "BEAUTY", "ADORATION", "AFFECTION", "DEVOTION", "RAPTURE", "FERVOUR", "WARMTH", "ARDOR", "CHARM", "FLAME", "FELICITY", "FANCY", "BEING"};
@@ -51,6 +52,7 @@ string word(char type) {
             break;
         }
     }
+    
     return word;
 }
 
