@@ -15,7 +15,7 @@ Print the letter's closing
 
 using namespace std;
 
-string word(string[] type) {
+string word(string type[]) {
     string word;
     
     word = type[rand() % size(type)];;
