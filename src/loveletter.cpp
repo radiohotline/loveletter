@@ -1,11 +1,30 @@
+/*
+Print two words taken from a list of salutations
+Do the following 5 times:
+
+    Choose one of two sentence structures depending on a random value Rand
+    Fill the sentence structure from lists of adjectives, adverbs, substantives, and verbs.
+
+Print the letter's closing
+*/
+
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <iterator>
 
 using namespace std;
 
-string word(char type) {
+string word(string[] type) {
     string word;
+    
+    word = type[rand() % size(type)];;
+    
+    return word;
+}
+
+int main() {
+    srand(time(NULL));
 
     string g1[] = {"DEAR", "DARLING", "DEAREST", "BELOVED", "SWEET"};
     
@@ -18,67 +37,27 @@ string word(char type) {
     string adv[] = {"TENDERLY", "BEAUTIFULLY", "CURIOUSLY", "LOYALLY", "TRULY", "WARMLY", "EAGERLY", "LOVINGLY", "AVIDLY", "KEENLY", "MARVELOUSLY", "ENTICINGLY", "CHARMINGLY", "DREAMILY"};
 
     string verb[] = {"LONGS FOR", "YEARNS FOR", "CLINGS TO", "HOLDS DEAR", "TREASURES", "LIKES", "HUNGERS FOR", "ADORES", "THIRSTS FOR", "DESIRES", "SEEKS", "WISHES FOR", "STRIVES FOR", "PINES FOR", "WISHES FOR", "SIGHS FOR"};
-    
-    switch(type) {
-        case 's': { //salutation
-            srand(time(NULL));
-            word = g1[rand() % 5];
-            break;
-        }
 
-        case 'g': { //greeting
-            srand(time(NULL));
-            word = g2[rand() % 8];
-            break;
-        }
-
-        case 'n': {
-            word = noun[rand() % 34];
-            break;
-        }
-
-        case 'a': { //adj
-            word = adj[rand() % 30];
-            break;
-        }
-
-        case 'd': { //adv
-            word = adv[rand() % 14];
-            break;
-        }
-
-        case 'v': {
-            word = verb[rand() % 16];
-            break;
-        }
-    }
-    
-    return word;
-}
-
-int main() {
-    cout << word('s') << " " << word('g') << "," << endl << endl; //greeting
-    
-    srand(time(NULL));
+    cout << word(g1) << " " << word(g2) << "," << endl << endl; //greeting
 
     for(int i = 0; i < 5; i++) {
         if(rand()%2 == 0) {
             if(rand()%2 == 0) {
-                cout << "YOU ARE MY " << word('a') << " " << word('n') << ". "; //short
+                cout << "YOU ARE MY " << word(adj) << " " << word(noun) << ". "; //short
             }
 
-            else if(rand() % 2 == 1) {
-                cout << "YOU ARE MY " << word('a') << " " << word('n') << ": MY " << word('a') << " " << word('n') << ". ";                
+            else {
+                cout << "YOU ARE MY " << word(adj) << " " << word(noun) << ": MY " << word(adj) << " " << word(noun) << ". ";                
             }
         }
 
-        else if(rand()%2 == 1) {
-            cout << "MY " << word('a') << " " << word('n') << " " << word('d')
-            << " " << word('v') << " YOUR " << word('a') << " " << word('n') << ". "; //long
+        else {
+            cout << "MY " << word(adj) << " " << word(noun) << " " << word(adv)
+            << " " << word(verb) << " YOUR " << word(adj) << " " << word(noun) << ". "; //long
         }
     }
     
-    cout << endl << endl << "YOURS " << word('d') << "," << endl; //closing
+    cout << endl << endl << "YOURS " << word(adv) << "," << endl; //closing
     cout << "TROY." << endl;
 
     return 0; 
