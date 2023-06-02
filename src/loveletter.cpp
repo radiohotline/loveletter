@@ -1,13 +1,3 @@
-/*
-Print two words taken from a list of salutations
-Do the following 5 times:
-
-    Choose one of two sentence structures depending on a random value Rand
-    Fill the sentence structure from lists of adjectives, adverbs, substantives, and verbs.
-
-Print the letter's closing
-*/
-
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -18,7 +8,7 @@ using namespace std;
 string word(string type[]) {
     string word;
     
-    word = type[rand() % size(type)];;
+    word = type[rand() % size(type)];
     
     return word;
 }
